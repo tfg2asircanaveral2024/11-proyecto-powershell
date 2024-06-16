@@ -38,7 +38,7 @@ done
 # si el valor de $REMOTO_EXISTE sigue siendo 0, el remoto 'original' no existía, así que lo creamos
 if [[ $REMOTO_EXISTE -eq 0 ]]; then
     # debes cambiar esta URL por el nombre del repositorio
-    git remote add original git@github.com:tfg2asircanaveral2024/6-proyecto-powershell-base.git
+    git remote add original git@github.com:tfg2asircanaveral2024/11-proyecto-powershell.git
 fi
 
 # hacemos que la rama produccion apunte al commit actual y cambiamos a ella
