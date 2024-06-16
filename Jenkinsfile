@@ -20,6 +20,18 @@ pipeline {
             }
         }
 
+        // hacemos un Docker Pull para evitar que la imagen sea construida de nuevo en caso de que en Docker Hub ya exista la misma imagen
+        stage('Obtener Imagen (Docker Pull)') {
+            agent any
+
+            steps {
+                script {
+                    docker.image("${NOMBRE_USUARIO}/${NOMBRE_IMAGEN}:${TAG_IMAGEN}").pull()
+                }
+            }
+        }
+
+        // solo se perderá tiempo en esta fase si la imagen obtenida de Docker Hub no está suficientemente actualizada en cuanto a dependencias instaladas
         stage('Crear Imagen') {
             agent any
 
