@@ -42,18 +42,6 @@ pipeline {
             }
         }
 
-        stage('Publicar Imagen') {
-            agent any
-
-            steps {
-                script {
-                    docker.withRegistry('https://registry.hub.docker.com', 'credenciales-dockerhub') {
-                        imagen.push("${TAG_IMAGEN}")
-                    }
-                }
-            }
-        }
-
         stage('Tests (Pester)') {
             agent { 
                 docker {
